@@ -2,10 +2,14 @@ package com.java_lessons;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class DictionaryFrame extends JFrame {
     final static int WIDTH = 350;
     final static int HEIGHT = 200;
+
+    Map<String,String> dictionary=new TreeMap<>();
 
     JTextField inputText = new JTextField(10);
     JTextField outputText = new JTextField(10);
@@ -38,7 +42,7 @@ public class DictionaryFrame extends JFrame {
         getContentPane().add(translateButton);
 
         //inputText
-        layout.putConstraint(SpringLayout.NORTH, inputLabel, 15, SpringLayout.NORTH, getContentPane());
+        layout.putConstraint(SpringLayout.NORTH, inputLabel, 25, SpringLayout.NORTH, getContentPane());
         layout.putConstraint(SpringLayout.WEST, inputLabel, 10, SpringLayout.WEST, getContentPane());
         layout.putConstraint(SpringLayout.VERTICAL_CENTER, inputText, 0, SpringLayout.VERTICAL_CENTER, inputLabel);
         layout.putConstraint(SpringLayout.WEST, inputText, 5, SpringLayout.EAST, inputLabel);
