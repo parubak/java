@@ -15,26 +15,27 @@ public class TranslateButtonListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         String answerInput = frame.inputText.getText();
-        if (answerInput.isEmpty())return;
+        if (!answerInput.isEmpty()) {
 
-       String answerDictionary=frame.dictionary.get(answerInput);
+            String answerDictionary = frame.dictionary.get(answerInput);
 
-        if (answerDictionary==null){
-            if (0==JOptionPane.showConfirmDialog(frame,"Add translation?",
-                    String.format("Word %s not found", answerInput), JOptionPane.YES_NO_OPTION)){
-                String translate=JOptionPane.showInputDialog("Enter translation: ");
+            if (answerDictionary == null) {
+                if (0 == JOptionPane.showConfirmDialog(frame, "Add translation?",
+                        String.format("Word %s not found", answerInput), JOptionPane.YES_NO_OPTION)) {
+                    String translate = JOptionPane.showInputDialog("Enter translation: ");
 
-                if (translate != null && !translate.isEmpty()) {
-                    frame.dictionary.putIfAbsent(answerInput, translate);
-                    JOptionPane.showMessageDialog(frame,
-                            String.format("Translation \"%s\" >>> \"%s\" added successfully!", answerInput, translate));
-                    frame.outputText.setText(translate);
-                    return;
+                    if (translate != null && !translate.isEmpty()) {
+                        frame.dictionary.putIfAbsent(answerInput, translate);
+                        JOptionPane.showMessageDialog(frame,
+                                String.format("Translation \"%s\" >>> \"%s\" added successfully!", answerInput, translate));
+                        frame.outputText.setText(translate);
+                        return;
+                    }
                 }
+            } else {
+                frame.outputText.setText(answerDictionary);
+                return;
             }
-        }else {
-            frame.outputText.setText(answerDictionary);
-            return;
         }
         frame.outputText.setText("");
     }

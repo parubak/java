@@ -28,6 +28,7 @@ public class DictionaryFrame extends JFrame {
 
         inputLabel.setLabelFor(inputText);
         outputLabel.setLabelFor(outputText);
+        outputText.setEditable(false);
         inputText.setFont(new Font(null, Font.ITALIC, 20));
         outputText.setFont(new Font(null, Font.ITALIC, 20));
         inputLabel.setFont(new Font(null, Font.PLAIN, 20));
